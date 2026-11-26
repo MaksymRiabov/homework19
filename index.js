@@ -24,7 +24,9 @@ function removeProduct(array, product) {
 
 function replaceProduct(array, oldProduct, newProduct) {
   const productIndex = array.indexOf(oldProduct);
-  array.splice(productIndex, 1, newProduct);
+  if (productIndex !== -1) {
+    array.splice(productIndex, 1, newProduct);
+  }
 }
 
 function checkProduct(array, product) {
@@ -58,15 +60,16 @@ function getPassedScores(array) {
   for (let item of array) {
     if (item >= 70) {
       newArray.push(item);
-    } else {
-      continue;
     }
   }
   return newArray;
 }
 
 function getTopScores(array, count) {
-  const newArray = array.slice(-count);
+  let newArray = [];
+  if (count !== 0) {
+    newArray = array.slice(-count);
+  }
   return newArray;
 }
 
@@ -80,7 +83,7 @@ function removeLowestScore(array) {
     }
   }
   const indexOfLowest = array.indexOf(currentLowest);
-  const lowest = array.splice(indexOfLowest, 1);
+  const lowest = Number(array.splice(indexOfLowest, 1));
   return lowest;
 }
 
@@ -146,7 +149,7 @@ function cancelLastClient(array) {
 }
 
 function getClients(array) {
-  const string = array.join('→');
+  const string = array.join(' → ');
   return string;
 }
 
