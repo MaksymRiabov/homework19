@@ -67,7 +67,7 @@ function getPassedScores(array) {
 
 function getTopScores(array, count) {
   let newArray = [];
-  if (count !== 0) {
+  if (count > 0) {
     newArray = array.slice(-count);
   }
   return newArray;
