@@ -78,8 +78,6 @@ function removeLowestScore(array) {
   for (let i = 0; i < array.length; i++) {
     if (currentLowest > array[i]) {
       currentLowest = array[i];
-    } else {
-      continue;
     }
   }
   const indexOfLowest = array.indexOf(currentLowest);
